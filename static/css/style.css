@@ -1,5 +1,12 @@
 body {
-    background-color: #ffffff;
+    background-color: #a9ccfa;
+}
+
+.bg{
+    background-image: url(../background.jpg);
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 .brand {
@@ -9,8 +16,8 @@ body {
     color: #4A4A4F;
 }
 
-.red-o {
-    color: #E84610;
+.blue-brand {
+    color: #1237dd;
 }
 
 .thin {
