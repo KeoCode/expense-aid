@@ -3,59 +3,54 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row">
+    <h1>Add a new post</h1>
+    <div class="row align-items-center" style="height: 100vh;">
+        <div class="mx-auto col-10 col-md-8 col-lg-6">
 
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in post_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="https://w0.peakpx.com/wallpaper/145/77/HD-wallpaper-euro-blue-sign-blue-brickwall-euro-sign-currency-signs-euro-neon-sign-euro.jpg">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
-                            </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <span><h6 class="card-date">{{ post.date }}</h6></span><span><h6> Amount: €{{ post.expense_amount }}</h6></span>
-                                <p class="card-text">{{ post.excerpt }}</p>
-                            </a>
-                            <hr />
-                            
-                        </div>
+
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" Class="btn-signup:hover btn-signup:active btn-form">Add Expense
+                    Post</button>
+            </form>
+
+            <!-- <form method="POST" action="{% url 'add_post' %}" id="form">
+                {% csrf_token %}
+                <div>
+                    <p>
+                        <label for="post-title">Expense: </label>
+                        <Input type="text" id="post-title" name="post_name" class="form-control" required></Input>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <label for="post_amount">Amount: €</label>
+                        <Input type="number" id="post-amount" name="post_amount" class="form-control" required></Input>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <label for="post-date">Date: </label>
+                        <Input type="date" id="post-date" name="post_date" class="form-control"></Input>
+                    </p>
+                </div>
+                <div class="input-group input-group-lg">
+                    <p>
+                        <label for="post-content">Comments: </label>
+                        <Input type="text" id="post-content" name="post_content"
+                            class="form-control form-control-lg"></Input>
+                    </p>
+                    </div>
+                    <div>
+                        <p>
+                            <button type="submit" Class="btn-signup:hover btn-signup:active btn-form">Add Expense
+                                Post</button>
+                        </p>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% empty %}
-                <tr><td>You have no Expenses logged yet!</td></tr>
-                {% endfor %}
-
-            </div>
+            </form> -->
         </div>
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
 </div>
 {%endblock%}

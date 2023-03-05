@@ -54,6 +54,11 @@ body {
     background-color: #23BBBB;
 }
 
+h1 {
+    text-align: center;
+    margin: 50px;
+}
+
 .author {
     color: white;
     margin: 4px;
@@ -124,6 +129,14 @@ body {
     color: #fff;
 }
 
+.btn-form {
+    background-color: #fff;
+    color: #23BBBB;
+    font-weight: 700;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
@@ -141,17 +154,19 @@ body {
     text-decoration: underline;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
+#form {
+    left      : 50%;
+    top       : 50%;
+    position  : absolute;
+    transform : translate(-50%, -50%);
 }
 
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
+#commentbox {
+    
+    min-height: calc(5.5em + 1rem + 2px);
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
 }
 
 .footer {

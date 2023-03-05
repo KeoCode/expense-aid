@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<a href="{% url 'add_post' %}" class="card-title post-link btn-form btn-lg">Add an Expense</a>
+
 <div class="container-fluid">
     <div class="row">
 
@@ -58,4 +60,5 @@
     </nav>
     {% endif %}
 </div>
+
 {%endblock%}
