@@ -1,55 +1,22 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %} 
+
 {% block content %}
 
 <div class="container-fluid">
     <h1>Add a new post</h1>
-    <div class="row align-items-center" style="height: 100vh;">
-        <div class="mx-auto col-10 col-md-8 col-lg-6">
+    <div class="row align-items-center" style="height: 10vh;">
+        <div class="mx-auto col-10 col-md-8 col-lg-6 form-control">
 
 
             <form enctype="multipart/form-data" method="POST">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form|crispy }}
                 <button type="submit" Class="btn-signup:hover btn-signup:active btn-form">Add Expense
                     Post</button>
             </form>
 
-            <!-- <form method="POST" action="{% url 'add_post' %}" id="form">
-                {% csrf_token %}
-                <div>
-                    <p>
-                        <label for="post-title">Expense: </label>
-                        <Input type="text" id="post-title" name="post_name" class="form-control" required></Input>
-                    </p>
-                </div>
-                <div>
-                    <p>
-                        <label for="post_amount">Amount: €</label>
-                        <Input type="number" id="post-amount" name="post_amount" class="form-control" required></Input>
-                    </p>
-                </div>
-                <div>
-                    <p>
-                        <label for="post-date">Date: </label>
-                        <Input type="date" id="post-date" name="post_date" class="form-control"></Input>
-                    </p>
-                </div>
-                <div class="input-group input-group-lg">
-                    <p>
-                        <label for="post-content">Comments: </label>
-                        <Input type="text" id="post-content" name="post_content"
-                            class="form-control form-control-lg"></Input>
-                    </p>
-                    </div>
-                    <div>
-                        <p>
-                            <button type="submit" Class="btn-signup:hover btn-signup:active btn-form">Add Expense
-                                Post</button>
-                        </p>
-                    </div>
-                </div>
-            </form> -->
         </div>
     </div>
 </div>
