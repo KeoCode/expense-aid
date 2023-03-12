@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from expenses.views import AuthorCreateView
+from expenses.views import AuthorCreateView, AuthorCreateView, AuthorDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),

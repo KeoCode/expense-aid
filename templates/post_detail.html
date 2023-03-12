@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block content %}
 
 <div class="masthead">
     <div class="container">
@@ -41,6 +43,10 @@
             <hr>
         </div>
     </div>
+
+    <a href="{% url 'update_post' post.slug %}" class="card-title post-link btn-form btn-lg">Edit this Expense</a>
+    <a href="{% url 'delete_post' post.slug %}" class="card-title post-link btn-form btn-lg">Delete this Expense</a>
+
 </div>
 
 {% endblock content %}

@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
-from django.views.generic.edit import CreateView
-from .models import Post
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse, reverse_lazy
+from django.contrib.auth.models import User
+from .models import Post, User
 from expenses.forms import AddPostForm
 
 
@@ -15,7 +18,8 @@ class PostList(generic.ListView):
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        post = get_object_or_404(slug=slug)
+        queryset = Post.objects.filter()
+        post = get_object_or_404(queryset, slug=slug)
 
         return render(
             request,
@@ -36,3 +40,19 @@ class AuthorCreateView(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class AuthorUpdateView(LoginRequiredMixin, UpdateView):
+    model = Post
+    form_class = AddPostForm
+    template_name = 'update_post.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class AuthorDeleteView(LoginRequiredMixin, DeleteView):
+    model = Post
+    success_url = '/'
