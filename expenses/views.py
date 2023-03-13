@@ -55,4 +55,5 @@ class AuthorUpdateView(LoginRequiredMixin, UpdateView):
 
 class AuthorDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
+    template_name = 'delete_post.html'
     success_url = '/'
