@@ -5,7 +5,7 @@ from datetime import datetime, date
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.template.defaultfilters import slugify
 
-STATUS = ((0, "Draft"), (1, "Published"))
+# STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Post(models.Model):

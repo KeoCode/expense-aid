@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.models import User
 from .models import Post, User
@@ -30,30 +31,36 @@ class PostDetail(View):
         )
 
 
-class AuthorCreateView(CreateView):
+class AuthorCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Post
     form_class = AddPostForm
     template_name = 'add_post.html'
     success_url = '/'
-    success_message = '%(title) was created'
+    success_message = 'Post was Created Successfully'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
 
-class AuthorUpdateView(LoginRequiredMixin, UpdateView):
+class AuthorUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Post
     form_class = AddPostForm
     template_name = 'update_post.html'
     success_url = '/'
+    success_message = "Post was Updated successfully"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+    def get_success_message(self, cleaned_data):
+        print(cleaned_data)
+        return "Post was Updated successfully"
 
-class AuthorDeleteView(LoginRequiredMixin, DeleteView):
+
+class AuthorDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = '/'
+    success_message = 'Post was Deleted Successfully'
