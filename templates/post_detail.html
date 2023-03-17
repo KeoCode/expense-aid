@@ -43,10 +43,12 @@
             <hr>
         </div>
     </div>
-
+    <div>
     <a href="{% url 'update_post' post.slug %}" class="card-title post-link btn-form btn-lg">Edit this Expense</a>
+    </div>
+    <div>
     <a href="{% url 'delete_post' post.slug %}" class="card-title post-link btn-form btn-lg">Delete this Expense</a>
-
+    </div>
 </div>
 
 {% endblock content %}

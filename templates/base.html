@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html class="h-100">
+<html lang="en" class="h-100">
 
 <head>
     <title>ExpenseAID</title>
@@ -30,12 +30,12 @@
             <a class="navbar-brand" href="{% url 'home' %}"><span class="brand"><strong>E</strong><span class="blue-brand">xpense</span><strong>AID</strong></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-regular fa-bars"></i>
+            <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link active" aria-current="Current page" href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -50,7 +50,7 @@
                     </li>
                     {% endif %}
                 </ul>
-                <span class="navbar-text text-muted">
+                <span class="navbar-text text-black-50">
                     Add an Expense
                 </span>
             </div>
@@ -76,10 +76,6 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3 bg-light text-dark">
         <a class="navbar-brand" href="{% url 'home' %}"><span class="brand"><strong>E</strong><span class="blue-brand">xpense</span><strong>AID</strong></span></a>
-        <span class="m-10 float-end text-right text-blue">Follow us: <i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i></span>
     </footer>
 </body>
 
