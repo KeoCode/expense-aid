@@ -14,7 +14,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <p>Are you sure you want to delete {{ post.slug }}?</p>
-                <input type="submit" Class="btn-signup:hover btn-signup:active btn-form" value="Delete">
+                <input type="submit" Class="btn-form btn-form:hover btn-form:active" value="Delete">
             </form>
 
         </div>
