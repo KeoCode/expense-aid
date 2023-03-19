@@ -7,16 +7,25 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.template.defaultfilters import slugify
 from autoslug import AutoSlugField
 
-# STATUS = ((0, "Draft"), (1, "Published"))
-
 
 class Post(models.Model):
-    title = models.CharField(max_length=200, unique=False, null=False, blank=False)
+    title = models.CharField(max_length=200,
+                             unique=False,
+                             null=False,
+                             blank=False,
+                             )
     slug = AutoSlugField(populate_from='title', max_length=200, unique=True)
     date = models.DateField(("Date"), default=date.today)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="expense_post")
+    author = models.ForeignKey(User,
+                               on_delete=models.CASCADE,
+                               related_name="expense_post",
+                               )
     udated_on = models.DateTimeField(auto_now=True)
-    expense_amount = models.PositiveIntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(100000)])
+    expense_amount = models.PositiveIntegerField(
+                                                 default=0,
+                                                 validators=[MinValueValidator(1),
+                                                             MaxValueValidator(100000)],
+                                                 )
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)

@@ -10,10 +10,10 @@ from expenses.forms import AddPostForm
 
 
 class PostList(generic.ListView):
+    paginate_by = 6
     model = Post
     queryset = Post.objects.order_by('-created_on')
     template_name = 'index.html'
-    paginate_by = 6
 
 
 class PostDetail(View):

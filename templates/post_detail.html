@@ -10,7 +10,7 @@
                 <h1 class="post-title">{{ post.title }}</h1>
                 <span class="post-date">{{ post.date }}</span>
                 <!-- Post author goes before the | the post's amount goes after -->
-                <p class="post-subtitle">{{ post.author }} |  €{{ post.expense_amount }}</p>
+                <p class="post-subtitle"><strong>{{ post.author }} |  €{{ post.expense_amount }}</strong></p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
@@ -27,7 +27,7 @@
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
-                    {{ post.content | safe }}
+                <strong>{{ post.content | safe }}</strong>
                 </p>
                 <div class="row">
                 </div>

@@ -11,7 +11,11 @@
             <div class="col-12 mt-3 left">
                 <div class="row">
                     {% for post in post_list %}
+                    <!-- <h1>{{post.author}}</h1>
+                    <h1>{{user}}</h1> -->
                         {% if post.author == user %}
+
+                        
                             <div class="col-md-4">
                                 <div class="card mb-4">
                                     <div class="card-body">
@@ -24,10 +28,10 @@
                                         </div>
                                         <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                             <h4 class="card-title">{{ post.title }}</h4>
-                                            <span>
-                                                <h6 class="card-date">{{ post.date }}</h6>
-                                                <h6> Amount: €{{ post.expense_amount }}</h6>
-                                            </span>
+                                            <div>
+                                                <p class="card-date"><strong>{{ post.date }}</strong></p>
+                                                <p><strong> Amount: €{{ post.expense_amount }}</strong></p>
+                                            </div>
                                         </a>
                                         <hr>
 
@@ -35,10 +39,10 @@
                                 </div>
                             </div>
                             {% if forloop.counter|divisibleby:3 %}
-                        </div>
-                        <div class="row">
+                            </div>
+                            <div class="row">
                             {% endif %}
-                            {% endif %}
+                        {% endif %}
                     {% empty %}
                             <tr>
                                 <td>You have no Expenses logged yet!</td>
