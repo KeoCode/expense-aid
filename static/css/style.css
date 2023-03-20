@@ -68,7 +68,7 @@ h1 {
 
 .masthead {
     margin-top: 10px;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
     display: inline-block;
     height: 33vh;

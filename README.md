@@ -5,7 +5,7 @@
 
 ![alt text](/static/css/readme-images/am-i-responsive.png)
 
-Live site available [here](). 
+Live site available [here](https://expensed.herokuapp.com/). 
 
 
 -----
@@ -85,11 +85,11 @@ The plan for this project was carried out using the Agile Methodology in Github.
 
 ### Epics
 
-1. Sign in/out [#1]()
-2. Expense Post [#2]()
-3. Home page [#3]()
-4. CRUD [#4]()
-5. Authorisation [#5]()
+1. Sign in/out
+2. Expense Post
+3. Home page
+4. CRUD
+5. Authorisation
 
 ### User Stories
 
@@ -388,7 +388,8 @@ All Tests Passed &#x2611;
 ## Bugs
 
 - When implementing the ability to only view post the author created and no other users posts, with the help of student tutoring we createda class based view to handle it but  still had an issue with if there was no posts created by the user then i would just show a blank screen. Instead i wanted it to show, a message asking them to log in.
-I resolved this issue by removing the class based view and creating a loop in my html template instead.
+I resolved this issue by adding the class based view and editing the loop in my html template instead.
+I then had the issue that if
 
 - I had an issue adding the bars icon on the navbar, with the help of my mentor i realised i was using an outdated icon name.
 
