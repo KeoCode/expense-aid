@@ -15,6 +15,13 @@ class PostList(generic.ListView):
     queryset = Post.objects.order_by('-created_on')
     template_name = 'index.html'
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.request.user.is_authenticated:
+            return queryset.filter(author=self.request.user)
+        else:
+            return Post.objects.none()
+
 
 class PostDetail(View):
 
