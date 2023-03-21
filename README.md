@@ -93,7 +93,7 @@ The plan for this project was carried out using the Agile Methodology in Github.
 
 ### User Stories
 
-These are the user stories that were completed within the projects first release, by Epic.
+These are the user stories that were completed within the projects first release.
 
 - User sign in or sign out
 	*  User Account Login / Logout - As a User, I would like to be able to login or logout of my account, so that I can keep my account secure
@@ -207,7 +207,7 @@ Below you can see the results of Googles Lighthouse Testing.
 ![Lighthouse Testing](/static/css/readme-images/lighthouse-score-index.png)
 
 
-#### Python/JavaScript Testing
+#### Python Testing
 All Custom Python code was manually tested multiple times during and after development.
 
 ## Testing User Stories
@@ -521,7 +521,7 @@ Everybody on Slack for asking the questions before i thought of them and helping
 
 Sarah Keohane, Aspiring Full Stack Software Developer.
 - [GitHub](https://github.com/KeoCode)
-- [Linkedin](https://www.linkedin.com/in/Sarahkeo/)
+- [Linkedin](https://www.linkedin.com/in/sarah-keohane/)
 - [Heroku](https://dashboard.heroku.com/apps/expensed)
 
 
